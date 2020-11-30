@@ -8,7 +8,7 @@ public class ShippingList {
     private String oder;
     private String address;
     private double money;
-    private int status;
+    private String status;
     private Date completeDate;
 
     @Override
@@ -19,7 +19,7 @@ public class ShippingList {
                 ", oder='" + oder + '\'' +
                 ", address='" + address + '\'' +
                 ", money=" + money +
-                ", status=" + status +
+                ", status='" + status + '\'' +
                 ", completeDate=" + completeDate +
                 '}';
     }
@@ -64,11 +64,11 @@ public class ShippingList {
         this.money = money;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -80,7 +80,7 @@ public class ShippingList {
         this.completeDate = completeDate;
     }
 
-    public ShippingList(int productId, int userId, String oder, String address, double money, int status, Date completeDate) {
+    public ShippingList(int productId, int userId, String oder, String address, double money, String status, Date completeDate) {
         this.productId = productId;
         this.userId = userId;
         this.oder = oder;
@@ -88,5 +88,8 @@ public class ShippingList {
         this.money = money;
         this.status = status;
         this.completeDate = completeDate;
+    }
+
+    public ShippingList() {
     }
 }

@@ -69,7 +69,7 @@ class UserDaoTest {
     @org.junit.jupiter.api.Test
     void updateBalance4() {
         外键 w = new 外键() ;
-        w.截断表();
+        w.截断表("user");
     }
 
 

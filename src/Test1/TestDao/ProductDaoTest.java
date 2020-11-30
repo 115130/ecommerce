@@ -1,24 +1,38 @@
 package Test1.TestDao;
 
+import DBTool.外键;
 import g305.dao.ProductDao;
+import g305.pojo.Product;
 import org.junit.jupiter.api.Test;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.sql.Blob;
 
 
 class ProductDaoTest {
     ProductDao productDao =new ProductDao();
     @Test
     void getAllProduct() {
-        productDao.getAllProduct();
+        for (Product product : productDao.getAllProduct()) {
+            System.out.println(product.toString());
+        }
     }
 
     @Test
     void getNameProduct() {
-        productDao.getNameProduct("橘子");
+        System.out.println(productDao.getNameProduct("橘子"));
+    }
+    @Test
+    void getNameProduc() {
+        外键 n =new 外键();
+        n.截断表("product");
     }
 
     @Test
-    void addProduct() {
-        System.out.println(productDao.addProduct(1, "橘子",100,100.0,null,"绿的"));
+    void addProduct() throws FileNotFoundException {
+        System.out.println(productDao.addProduct( "橘子",100,100.0,  new FileInputStream("C:\\Users\\miao\\OneDrive\\桌面\\Snipaste_2020-11-30_14-50-30.jpg"),"绿的"));
     }
 
     @Test
@@ -37,8 +51,8 @@ class ProductDaoTest {
     }
 
     @Test
-    void updateImage() {
-        productDao.updateImage("柠檬",null);
+    void updateImage() throws FileNotFoundException {
+        productDao.updateImage("柠檬",new FileInputStream("C:\\Users\\miao\\OneDrive\\桌面\\Snipaste_2020-11-30_14-50-30.jpg"));
     }
 
     @Test

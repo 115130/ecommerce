@@ -26,14 +26,13 @@ public class ShippingDao extends BaseDao<Shipping>{
      */
     public List<Shipping> getAllShipping(){
         return queryAll("select * from Shipping");
-
     }
     /**
      * 使用用户id查全部
      * @return 用户id
      */
     public List<Shipping> getArsShipping(int id){
-        return queryAll("select * from Shipping ",id);
+        return queryAll("select * from Shipping where user_id=?",id);
     }
     /**
      * 更改商品属性
@@ -45,6 +44,18 @@ public class ShippingDao extends BaseDao<Shipping>{
     public int updateProperty(int userId,int productId,String afterProperty){
         return update("update shipping set  product_Property=? where user_id=? and product_Id=?",afterProperty,userId,productId);
     }
+
+    /**
+     * 增加商品
+     * @param userId 用户id
+     * @param productId 商品id
+     * @param productCount 商品数量
+     * @param productProperty 商品属性
+     * @return 增加了多少购物车
+     */
+    public int addShipping(int userId,int productId,int productCount,String productProperty){
+        return update("insert into Shipping (user_id,product_id,product_Count,product_Property) values(?,?,?,?)",userId,productId,productCount,productProperty);
+    }
     /**
      * 更改商品属性
      * @param userId 用户id
@@ -52,7 +63,7 @@ public class ShippingDao extends BaseDao<Shipping>{
      * @param afterCount 修改的数量
      * @return 修改了多少购物车
      */
-    public int updateProductName(int userId,int productId,int afterCount){
+    public int updateProductCount(int userId,int productId,int afterCount){
         return update("update shipping set  product_count=? where user_id=? and product_Id=?",afterCount,userId,productId);
     }
     /**
@@ -62,7 +73,7 @@ public class ShippingDao extends BaseDao<Shipping>{
      * @return 删除购物车的数量
      */
     public int deleteShipping(int userId,int productId){
-        return update("delete from Shipping where id=? and product_Id=?",userId,productId);
+        return update("delete from Shipping where user_id=? and product_Id=?",userId,productId);
     }
 
 

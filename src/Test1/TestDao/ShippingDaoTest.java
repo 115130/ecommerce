@@ -1,33 +1,44 @@
 package Test1.TestDao;
 
 import g305.dao.ShippingDao;
+import g305.pojo.Shipping;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
 
 class ShippingDaoTest {
-    ShippingDao shippingDao =new ShippingDao();
+    ShippingDao shipping = new ShippingDao();
     @Test
     void getAllShipping() {
-        shippingDao.getAllShipping();
+        for (Shipping shipping1 : shipping.getAllShipping()) {
+            System.out.println(shipping1);
+        }
     }
 
     @Test
     void getArsShipping() {
-        shippingDao.getArsShipping(1);
+        for (Shipping shipping1 : shipping.getArsShipping(1)) {
+            System.out.println(shipping1);
+        }
     }
 
     @Test
     void updateProperty() {
-        shippingDao.updateProperty(1,1,"z");
+        shipping.updateProperty(1,1,"灰");
     }
 
     @Test
-    void testUpdateProductName() {
-        shippingDao.updateProductName(1,1,13214567);
+    void addShipping() {
+        shipping.addShipping(1,1,100,"旅");
+    }
+
+    @Test
+    void updateProductName() {
+        shipping.updateProductCount(1,1,1000);
     }
 
     @Test
     void deleteShipping() {
-        shippingDao.deleteShipping(1,1);
+        shipping.deleteShipping(1,1);
     }
 }

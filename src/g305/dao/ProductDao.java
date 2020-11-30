@@ -3,6 +3,7 @@ package g305.dao;
 import g305.pojo.Product;
 
 
+import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class ProductDao extends BaseDao<Product>{
         ResultSet rs=query(sql,objects);
         try {
             while (rs.next()) {
-                list.add(new Product(rs.getInt("product_id"), rs.getString("product_name"), rs.getInt("product_count"), rs.getDouble("product_price"),rs.getBlob("product_prcture"),rs.getString("product_property")));
+                list.add(new Product(rs.getInt("product_id"), rs.getString("product_name"), rs.getInt("product_count"), rs.getDouble("product_price"),rs.getBlob("product_picture"),rs.getString("product_property")));
             }
         } catch (Exception throwables) {
             throwables.printStackTrace();
@@ -40,7 +41,6 @@ public class ProductDao extends BaseDao<Product>{
     }
     /**
      * 增加商品
-     * @param productId 商品id
      * @param productName 商品名称
      * @param productCount 商品总数
      * @param productPrice 商品价格
@@ -48,9 +48,9 @@ public class ProductDao extends BaseDao<Product>{
      * @param productProperty 商品属性
      * @return 返回查询到的商品
      */
-    public int addProduct(int productId, String productName, int productCount, double productPrice, Blob productPicture,String productProperty){
-        return update("insert Product (Product_id,Product_name,Product_count,Product_price,Product_picture,Product_Property)" +
-                " values(?,?,?,?,?,?)",productId,productName,productCount,productPrice,productPicture,productProperty);
+    public int addProduct(String productName, int productCount, double productPrice, InputStream productPicture, String productProperty){
+        return update("insert Product (Product_name,Product_count,Product_price,Product_picture,Product_Property)" +
+                " values(?,?,?,?,?)",productName,productCount,productPrice,productPicture,productProperty);
     }
     /**
      * 删除商品
@@ -58,7 +58,7 @@ public class ProductDao extends BaseDao<Product>{
      * @return 返回删除行数
      */
     public int deleteProduct(int productId){
-        return update("delete from Product where Product_id=?");
+        return update("delete from Product where Product_id=?",productId);
     }
 
     /**
@@ -85,7 +85,7 @@ public class ProductDao extends BaseDao<Product>{
      * @param afterImage 商品图片
      * @return 更改商品的行数
      */
-    public int updateImage(String productName,Blob afterImage){
+    public int updateImage(String productName,InputStream afterImage){
        return update("update Product set product_Picture=? where Product_name=?",afterImage,productName);
     }
     /**
@@ -104,7 +104,7 @@ public class ProductDao extends BaseDao<Product>{
      * @return 更改商品的行数
      */
     public int updateName(String productName,String afterName){
-        return update("update Product set product_Property=? where Product_name=?",afterName,productName);
+        return update("update Product set Product_name=? where Product_name=?",afterName,productName);
     }
     @Override
     public int generalUpdate(Object... objects) {

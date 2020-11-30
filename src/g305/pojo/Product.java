@@ -10,6 +10,18 @@ public class Product {
     private Blob productPicture;
     private String productProperty;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productCount=" + productCount +
+                ", productPrice=" + productPrice +
+                ", productPicture=" + productPicture +
+                ", productProperty='" + productProperty + '\'' +
+                '}';
+    }
+
     public Product(int productId, String productName, int productCount, double productPrice, Blob productPicture, String productProperty) {
         this.productId = productId;
         this.productName = productName;

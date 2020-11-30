@@ -17,10 +17,10 @@ public class 外键 {
         baseDao.query("SET FOREIGN_KEY_CHECKS = 1");
     }
     @Test
-    public void 截断表(){
+    public void 截断表(String name){
         解除外键();
         try {
-            baseDao.ps.execute("truncate table user");
+            baseDao.ps.execute("truncate table "+name);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
