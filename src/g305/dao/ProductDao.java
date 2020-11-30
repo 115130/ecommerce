@@ -1,16 +1,16 @@
 package g305.dao;
 
 import g305.pojo.Product;
-import g305.pojo.User;
 
+
+import java.sql.Blob;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductDao extends BaseDao{
+public class ProductDao extends BaseDao<Product>{
     @Override
-    public List queryAll(String sql, Object... objects) throws SQLException {
+    public List<Product> queryAll(String sql, Object... objects) {
         List<Product> list = new ArrayList<Product>();
         ResultSet rs=query(sql,objects);
         try {
@@ -22,7 +22,90 @@ public class ProductDao extends BaseDao{
         }
         return list;
     }
+    /**
+     * 查询所有的商品
+     * @return 所有的商品
+     */
+    public List<Product> getAllProduct(){
+        return queryAll("SELECT * from Product");
+    }
 
+    /**
+     * 模糊查询和完整名字查询商品
+     * @param productName 商品名称
+     * @return 返回查询到的商品
+     */
+    public List<Product> getNameProduct(String productName){
+        return queryAll("SELECT * from Product where Product_name LIKE ? or Product_name=?","%"+productName+"%",productName);
+    }
+    /**
+     * 增加商品
+     * @param productId 商品id
+     * @param productName 商品名称
+     * @param productCount 商品总数
+     * @param productPrice 商品价格
+     * @param productPicture 商品图片
+     * @param productProperty 商品属性
+     * @return 返回查询到的商品
+     */
+    public int addProduct(int productId, String productName, int productCount, double productPrice, Blob productPicture,String productProperty){
+        return update("insert Product (Product_id,Product_name,Product_count,Product_price,Product_picture,Product_Property)" +
+                " values(?,?,?,?,?,?)",productId,productName,productCount,productPrice,productPicture,productProperty);
+    }
+    /**
+     * 删除商品
+     * @param productId 商品id
+     * @return 返回删除行数
+     */
+    public int deleteProduct(int productId){
+        return update("delete from Product where Product_id=?");
+    }
+
+    /**
+     * 根据商品名改变商品数量
+     * @param productName 商品名
+     * @param afterCount 商品数量
+     * @return 更改商品的行数
+     */
+    public int updateCount(String productName,int afterCount){
+       return update("update Product set Product_count=? where Product_name=?",afterCount,productName);
+    }
+    /**
+     * 根据商品名改变商品价格
+     * @param productName 商品名
+     * @param afterPrice 商品价格
+     * @return 更改商品的行数
+     */
+    public int updatePrice(String productName,double afterPrice){
+       return update("update Product set Product_Price=? where Product_name=?",afterPrice,productName);
+    }
+    /**
+     * 根据商品名改变商品图片
+     * @param productName 商品名
+     * @param afterImage 商品图片
+     * @return 更改商品的行数
+     */
+    public int updateImage(String productName,Blob afterImage){
+       return update("update Product set product_Picture=? where Product_name=?",afterImage,productName);
+    }
+    /**
+     * 根据商品名改变商品属性
+     * @param productName 商品名
+     * @param afterProperty 商品属性
+     * @return 更改商品的行数
+     */
+    public int updateProperty(String productName,String afterProperty){
+       return update("update Product set product_Property=? where Product_name=?",afterProperty,productName);
+    }
+    /**
+     * 根据商品名改变商品名字
+     * @param productName 商品名
+     * @param afterName 商品名
+     * @return 更改商品的行数
+     */
+    public int updateName(String productName,String afterName){
+        return update("update Product set product_Property=? where Product_name=?",afterName,productName);
+    }
     @Override
     public int generalUpdate(Object... objects) {
         return 0;

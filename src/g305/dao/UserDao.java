@@ -5,9 +5,9 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao extends BaseDao{
+public class UserDao extends BaseDao<User>{
     @Override
-    public List queryAll(String sql, Object... objects)  {
+    public List<User> queryAll(String sql, Object... objects)  {
         List<User> list = new ArrayList<User>();
         ResultSet rs=query(sql,objects);
         try {
@@ -81,7 +81,7 @@ public class UserDao extends BaseDao{
         return update("update user set user_name=? where user_name=?",afterName,name);
     }
     /**
-     * 更改用户名字
+     * 更改用户昵称
      * @param name 名字
      * @param afterPetName 修改的昵称
      * @return 修改了多少用户
@@ -90,7 +90,7 @@ public class UserDao extends BaseDao{
         return update("update user set user_pet_name=? where user_name=?",afterPetName,name);
     }
     /**
-     * 更改用户名字
+     * 更改用户密码
      * @param name 名字
      * @param afterPassword 修改的密码
      * @return 修改了多少用户
@@ -99,7 +99,7 @@ public class UserDao extends BaseDao{
         return update("update user set user_password=? where user_name=?",afterPassword,name);
     }
     /**
-     * 更改用户名字
+     * 更改用户地址
      * @param name 名字
      * @param afterAddress 修改的地址
      * @return 修改了多少用户
@@ -108,7 +108,7 @@ public class UserDao extends BaseDao{
         return update("update user set address=? where user_name=?",afterAddress,name);
     }
     /**
-     * 更改用户名字
+     * 更新用户余额
      * @param name 名字
      * @param afterBalance 修改的余额
      * @return 修改了多少用户
