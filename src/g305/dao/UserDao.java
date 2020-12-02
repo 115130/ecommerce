@@ -13,7 +13,7 @@ public class UserDao extends BaseDao<User>{
         try {
             while (rs.next()) {
                 list.add(new User(rs.getInt("id"), rs.getString("user_name"), rs.getString("user_pet_name"),
-                        rs.getString("user_password"), rs.getString("address"), rs.getDouble("balance"), rs.getInt("admin")));
+                        rs.getString("user_password"), rs.getString("address"), rs.getDouble("balance"), rs.getInt("admin"),rs.getString("phone")));
             }
         } catch (Exception throwables) {
             throwables.printStackTrace();
@@ -107,6 +107,7 @@ public class UserDao extends BaseDao<User>{
     public int updateAddress(String name,String afterAddress){
         return update("update user set address=? where user_name=?",afterAddress,name);
     }
+
     /**
      * 更新用户余额
      * @param name 名字
@@ -115,6 +116,15 @@ public class UserDao extends BaseDao<User>{
      */
     public int updateBalance(String name,double afterBalance){
         return update("update user set balance=? where user_name=?",afterBalance,name);
+    }
+    /**
+     * 更新用户电话
+     * @param name 名字
+     * @param afterPhone 修改的电话
+     * @return 修改了多少用户
+     */
+    public int updatePhone(String name,String afterPhone){
+        return update("update user set phone=? where user_name=?",afterPhone,name);
     }
 
     /**
@@ -125,7 +135,7 @@ public class UserDao extends BaseDao<User>{
      * @return 增加了多少用户
      */
     public int addUser(String name,String userPetName,String userPassword){
-        return update("insert into user (user_name,user_pet_name,user_password,admin,balance,deletes,address) values(?,?,?,0,0,0,'')",name,userPetName,userPassword);
+        return update("insert into user (user_name,user_pet_name,user_password,admin,balance,deletes,address,phone) values(?,?,?,0,0,0,'','')",name,userPetName,userPassword);
     }
 
     @Override

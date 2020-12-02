@@ -2,23 +2,25 @@ package g305.pojo;
 
 public class User {
     private int id;
-    private String UserName;
-    private String UserPetName;
-    private String UserPassword;
-    private String Address;
-    private double Balance;
-    private int Admin;
+    private String userName;
+    private String userPetName;
+    private String userPassword;
+    private String address;
+    private double balance;
+    private int admin;
+    private String phone;
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", UserName='" + UserName + '\'' +
-                ", UserPetName='" + UserPetName + '\'' +
-                ", UserPassword='" + UserPassword + '\'' +
-                ", Address='" + Address + '\'' +
-                ", Balance=" + Balance +
-                ", Admin=" + Admin +
+                ", userName='" + userName + '\'' +
+                ", userPetName='" + userPetName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", address='" + address + '\'' +
+                ", balance=" + balance +
+                ", admin=" + admin +
+                ", phone='" + phone + '\'' +
                 '}';
     }
 
@@ -31,61 +33,70 @@ public class User {
     }
 
     public String getUserName() {
-        return UserName;
+        return userName;
     }
 
     public void setUserName(String userName) {
-        UserName = userName;
+        this.userName = userName;
     }
 
     public String getUserPetName() {
-        return UserPetName;
+        return userPetName;
     }
 
     public void setUserPetName(String userPetName) {
-        UserPetName = userPetName;
+        this.userPetName = userPetName;
     }
 
     public String getUserPassword() {
-        return UserPassword;
+        return userPassword;
     }
 
     public void setUserPassword(String userPassword) {
-        UserPassword = userPassword;
+        this.userPassword = userPassword;
     }
 
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
     public double getBalance() {
-        return Balance;
+        return balance;
     }
 
     public void setBalance(double balance) {
-        Balance = balance;
+        this.balance = balance;
     }
 
     public int getAdmin() {
-        return Admin;
+        return admin;
     }
 
     public void setAdmin(int admin) {
-        Admin = admin;
+        this.admin = admin;
     }
 
-    public User(int id, String userName, String userPetName, String userPassword, String address, double balance, int admin) {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public User(int id, String userName, String userPetName, String userPassword, String address, double balance, int admin, String phone) {
         this.id = id;
-        UserName = userName;
-        UserPetName = userPetName;
-        UserPassword = userPassword;
-        Address = address;
-        Balance = balance;
-        Admin = admin;
+        this.userName = userName;
+        this.userPetName = userPetName;
+        this.userPassword = userPassword;
+        this.address = address;
+        this.balance = balance;
+        this.admin = admin;
+        this.phone = phone;
     }
 
     public User() {

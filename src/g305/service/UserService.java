@@ -67,9 +67,16 @@ public class UserService {
     public int updateName(String name,String afterName){
         return userDao.updateName(name,afterName);
     }
-
     /**
-     *
+     * 是否有对应的用户名
+     * @param name 名字
+     * @return 是否有
+     */
+    public boolean exist(String name){
+        return userDao.getUser(name).get(0).getUserName().equals(name);
+    }
+    /**
+     * 改昵称
      * @param name 名字
      * @param afterPetName 更改之后的名字
      * @return 更改了多少行
@@ -79,7 +86,7 @@ public class UserService {
     }
 
     /**
-     *
+     * 改密码
      * @param name 名字
      * @param afterPassword 更改之后的密码
      * @return 更改了多少行
@@ -89,7 +96,7 @@ public class UserService {
     }
 
     /**
-     *
+     * 改地址
      * @param name 名字
      * @param afterAddress 更改之后的地址
      * @return 更改了多少行
@@ -99,7 +106,7 @@ public class UserService {
     }
 
     /**
-     *
+     * 改余额
      * @param name 名字
      * @param afterBalance 更改之后的余额
      * @return 更改了多少行
@@ -109,7 +116,7 @@ public class UserService {
     }
 
     /**
-     *
+     * 添加用户
      * @param name 名字
      * @param userPetName 昵称
      * @param userPassword 密码
@@ -118,4 +125,14 @@ public class UserService {
     public int addUser(String name,String userPetName,String userPassword){
         return userDao.addUser(name,userPetName,userPassword);
     }
+    /**
+     * 改电话
+     * @param name 名字
+     * @param afterPhone 更改之后的电话
+     * @return 更改了多少行
+     */
+    public int updatePhone(String name,String afterPhone){
+        return userDao.updatePhone(name,afterPhone);
+    }
+
 }
