@@ -22,6 +22,7 @@ public class Product {
                 '}';
     }
 
+
     public Product(int productId, String productName, int productCount, double productPrice, Blob productPicture, String productProperty) {
         this.productId = productId;
         this.productName = productName;
