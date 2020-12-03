@@ -16,6 +16,7 @@
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 <div class="container">
     <div class="jumbotron">
         <h1>我的第一个 Bootstrap 页面</h1>
@@ -39,5 +40,6 @@
         </div>
     </div>
 </div>
+
 </body>
 </html>
