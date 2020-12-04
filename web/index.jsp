@@ -9,35 +9,27 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="bootstrap/js/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron">
-        <h1>我的第一个 Bootstrap 页面</h1>
-        <p>重置窗口大小，查看响应式效果！</p>
-    </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <h3>Column 1</h3>
-            <p>学的不仅是技术，更是梦想！</p>
-            <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 2</h3>
-            <p>学的不仅是技术，更是梦想！</p>
-            <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-        </div>
-        <div class="col-sm-4">
-            <h3>Column 3</h3>
-            <p>学的不仅是技术，更是梦想！</p>
-            <p>再牛逼的梦想,也抵不住你傻逼似的坚持！</p>
-        </div>
-    </div>
+    <h3>提示框实例</h3><br>
+    <a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </body>
 </html>
