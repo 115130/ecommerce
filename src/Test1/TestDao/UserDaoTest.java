@@ -11,7 +11,7 @@ class UserDaoTest {
     UserDao userDao = new UserDao();
     @org.junit.jupiter.api.Test
     void addUser() {
-        userDao.addUser("miao"+System.currentTimeMillis()%1000,"miaomiao","miaoa");
+        userDao.addUser("撒"  ,"miaomiao","miaoa");
     }
     @org.junit.jupiter.api.Test
     void getAllUser() {
@@ -22,7 +22,7 @@ class UserDaoTest {
 
     @org.junit.jupiter.api.Test
     void getUser() {
-        System.out.println(userDao.getUser("m"));
+        System.out.println(userDao.getUser("撒aa"));
     }
 
     @org.junit.jupiter.api.Test
