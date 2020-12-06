@@ -1,5 +1,6 @@
 package g305.pojo;
 
+import java.io.InputStream;
 import java.sql.Blob;
 
 public class Product {
@@ -7,23 +8,10 @@ public class Product {
     private String productName;
     private int productCount ;
     private double productPrice;
-    private Blob productPicture;
+    private InputStream productPicture;
     private String productProperty;
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", productCount=" + productCount +
-                ", productPrice=" + productPrice +
-                ", productPicture=" + productPicture +
-                ", productProperty='" + productProperty + '\'' +
-                '}';
-    }
-
-
-    public Product(int productId, String productName, int productCount, double productPrice, Blob productPicture, String productProperty) {
+    public Product(int productId, String productName, int productCount, double productPrice, InputStream productPicture, String productProperty) {
         this.productId = productId;
         this.productName = productName;
         this.productCount = productCount;
@@ -67,11 +55,11 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-    public Blob getProductPicture() {
+    public InputStream getProductPicture() {
         return productPicture;
     }
 
-    public void setProductPicture(Blob productPicture) {
+    public void setProductPicture(InputStream productPicture) {
         this.productPicture = productPicture;
     }
 
@@ -81,5 +69,17 @@ public class Product {
 
     public void setProductProperty(String productProperty) {
         this.productProperty = productProperty;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productCount=" + productCount +
+                ", productPrice=" + productPrice +
+                ", productPicture=" + productPicture +
+                ", productProperty='" + productProperty + '\'' +
+                '}';
     }
 }

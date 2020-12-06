@@ -21,13 +21,13 @@
     <div class="jumbotron text-center mt-5"  >
         <h1 class="text-muted">登录</h1>
     </div >
-    <form action="register.jsp" method="get">
+    <form action="LoginServlet" method="post">
         <div class="input-group mb-1">
-            <input id="inputUser" type="text"  class="form-control rounded" placeholder="用户名" >
+            <input id="inputUser" name="name" type="text"  class="form-control rounded" placeholder="用户名" >
             <span id="inputUserSpan" class="input-group-text d-none"></span>
         </div>
         <div class="input-group mb-1 mt-3 mb-5" >
-            <input id="inputPassword" type="password" class="form-control rounded" placeholder="密码">
+            <input id="inputPassword" name="password" type="password" class="form-control rounded" placeholder="密码">
             <span id="inputPasswordSpan" class="input-group-text d-none"></span>
         </div>
         <label id="label1"></label>

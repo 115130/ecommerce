@@ -16,7 +16,7 @@ public class ProductDao extends BaseDao<Product>{
         ResultSet rs=query(sql,objects);
         try {
             while (rs.next()) {
-                list.add(new Product(rs.getInt("product_id"), rs.getString("product_name"), rs.getInt("product_count"), rs.getDouble("product_price"),rs.getBlob("product_picture"),rs.getString("product_property")));
+                list.add(new Product(rs.getInt("product_id"), rs.getString("product_name"), rs.getInt("product_count"), rs.getDouble("product_price"),rs.getBlob("product_picture").getBinaryStream(),rs.getString("product_property")));
             }
         } catch (Exception throwables) {
             throwables.printStackTrace();

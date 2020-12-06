@@ -48,10 +48,8 @@
                 var json={"name":userName};
                 $.get("FindUserByNameServlet",json,callBack);//发送请求
                 function callBack(data){
-                    if(data==="ok"){
-
+                    if(data=="error"){
                         $("#inputUserSpan").css("color","green").html("用户名可以使用");
-
                     }else{
                         $("#inputUserSpan").css("color","red").html("用户名已被占用");
                     }

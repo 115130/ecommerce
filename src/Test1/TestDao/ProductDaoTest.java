@@ -32,7 +32,7 @@ class ProductDaoTest {
 
     @Test
     void addProduct() throws FileNotFoundException {
-        System.out.println(productDao.addProduct( "橘子",100,100.0,  new FileInputStream("C:\\Users\\miao\\OneDrive\\桌面\\Snipaste_2020-11-30_14-50-30.jpg"),"绿的"));
+        System.out.println(productDao.addProduct( "橘子",100,100.0,  new FileInputStream("C:\\Users\\miao\\OneDrive\\桌面\\Snipaste_2020-12-04_15-41-47.jpg"),"绿的"));
     }
 
     @Test

@@ -1,9 +1,14 @@
 package Test1.TestDao;
 
+import DBTool.UserTool;
 import DBTool.外键;
 import g305.dao.UserDao;
 import g305.pojo.User;
 import org.junit.jupiter.api.Test;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +16,7 @@ class UserDaoTest {
     UserDao userDao = new UserDao();
     @org.junit.jupiter.api.Test
     void addUser() {
-        userDao.addUser("撒"  ,"miaomiao","miaoa");
+        userDao.addUser("sa"  ,"Test", UserTool.getSha("87dfx35m"));
     }
     @org.junit.jupiter.api.Test
     void getAllUser() {
@@ -24,6 +29,14 @@ class UserDaoTest {
     void getUser() {
         System.out.println(userDao.getUser("撒aa"));
     }
+
+    @Test
+    public void addPwd() throws NoSuchAlgorithmException {
+        System.out.println(UserTool.getSha("123456").toString());
+
+
+    }
+
 
     @org.junit.jupiter.api.Test
     void deleteUser() {
