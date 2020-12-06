@@ -285,7 +285,7 @@
                                     </div>
                                     <div class="quantity" data-trigger="spinner">
                                         <a class="btn" href="javascript:;" data-spin="down"><i class="fa fa-minus"></i></a>
-                                        <input type="text" id="productQuantity" name="quantity" value="1" title="quantity" class="input-text">
+                                        <input type="text" id="productCount" name="quantity" value="1" title="quantity" class="input-text">
                                         <a class="btn" href="javascript:;" data-spin="up"><i class="fa fa-plus"></i></a>
                                     </div>
                                 </div>
@@ -302,17 +302,9 @@
                         $("[id=buttonAddCart]").click()(
                             function(){
                                 var json={"productName":${product["productName"]},
-                                    "productQuantity":[]
-
+                                    "productCount":$("[id=productCount]").val()
                                 };
-                                $.get("FindUserByNameServlet",json,callBack);//发送请求
-                                function callBack(data){
-                                    if(data=="error"){
-                                        $("#inputUserSpan").css("color","green").html("用户名可以使用");
-                                    }else{
-                                        $("#inputUserSpan").css("color","red").html("用户名已被占用");
-                                    }
-                                }
+                                $.get("FindUserByNameServlet",json);//发送请求
                             });
                     });
                 </SCRIPT>
