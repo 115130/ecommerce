@@ -304,7 +304,7 @@
                                 var json={"productName":${product["productName"]},
                                     "productCount":$("[id=productCount]").val()
                                 };
-                                $.get("FindUserByNameServlet",json);//发送请求
+                                $.get("AddCartServlet",json);//发送请求
                             });
                     });
                 </SCRIPT>
