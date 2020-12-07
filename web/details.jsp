@@ -298,14 +298,22 @@
                     </div>
                 </div>
                 <SCRIPT>
-                    $(function as(){
-                        $("[id=buttonAddCart]").click()(
+                    $(function (){
+                        $("[id=buttonAddCart]").click((
                             function(){
                                 var json={"productName":${product["productName"]},
-                                    "productCount":$("[id=productCount]").val()
-                                };
-                                $.get("AddCartServlet",json);//发送请求
-                            });
+                                    "productCount":$("[id=productCount]").val()}
+                                    $.get("AddCartServlet",json)
+                            }));
+                    });
+
+                    $(function (){
+                        $("[id=buttonAddCart]").click((
+                            function(){
+                                var json={"productName":${product["productName"]},
+                                    "productCount":$("[id=productCount]").val()}
+                                $.get("AddCartServlet",json)
+                            }));
                     });
                 </SCRIPT>
                 </c:forEach>

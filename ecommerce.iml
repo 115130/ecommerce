@@ -19,7 +19,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0.16 (2)" level="project" />
     <orderEntry type="module-library">
       <library name="JUnit4">
@@ -60,11 +59,13 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="bootstrap" level="application" />
-    <orderEntry type="library" name="popper.js" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="bootstrap" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="popper" level="application" />
     <orderEntry type="library" name="jstl-1.2" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="html5shiv" level="application" />
+    <orderEntry type="library" name="respond" level="application" />
   </component>
 </module>
