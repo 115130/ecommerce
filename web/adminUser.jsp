@@ -27,10 +27,10 @@
         <div class="col-md-12 column">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a  class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
+                    <a href="AdminUserServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
                 </li>
                 <li>
-                    <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 商品管理</a>
+                    <a href="AdminProductServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 商品管理</a>
                 </li>
                 <li>
                     <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> 订单管理</a>

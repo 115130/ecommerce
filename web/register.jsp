@@ -34,7 +34,7 @@
             <span id="inputPasswordSpan" class="input-group-text d-none"></span>
         </div>
         <div class="btn-group btn-group-lg container pl-5 pr-5 mt-5">
-            <button type="submit" class="btn btn-primary ml-2 mr-2 rounded">注册</button>
+            <button id="registerBtn" type="submit" class="btn btn-primary ml-2 mr-2 rounded">注册</button>
         </div>
     </form>
 
@@ -49,8 +49,10 @@
                 function callBack(data){
                     if(data=="error"){
                         $("#inputUserSpan").css("color","green").html("用户名可以使用");
+                        $("#registerBtn").fadeIn("slow")
                     }else{
                         $("#inputUserSpan").css("color","red").html("用户名已被占用");
+                        $("#registerBtn").fadeOut("slow")
                     }
                 }
             });
@@ -64,10 +66,12 @@
         var password=document.getElementById("inputPassword").value;
         document.getElementById("inputPasswordSpan").removeAttribute("class");
         document.getElementById("inputPasswordSpan").setAttribute("class","input-group-text");
-        if(/[0-9A-Za-z]{6,20}/.test(password)){
+        if(/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/.test(password)){
             document.getElementById("inputPasswordSpan").innerHTML="密码合乎要求";
+            $("#registerBtn").fadeIn("slow")
         }else{
-            document.getElementById("inputPasswordSpan").innerHTML="密码需要六位";
+            document.getElementById("inputPasswordSpan").innerHTML="密码需要六位,且必须为数字密码混合";
+            $("#registerBtn").fadeOut("slow")
         }
     }
 
