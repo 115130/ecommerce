@@ -40,14 +40,14 @@
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">高级选项<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">清理所有已删除用户</a>
+                            <a id="DELETEUSER">清理所有已删除用户</a>
                         </li>
                         <li>
-                            <a href="#">黑暗模式</a>
+                            <a id="PageDark">黑暗模式</a>
                         </li>
 
                         <li>
-                            <a href="#">退出登录</a>
+                            <a href="OutLoginServlet">退出登录</a>
                         </li>
 
                     </ul>
@@ -77,10 +77,23 @@
                     $(function(){
                         $("#deleteButton").click(
                             function (){
-                            var json={"password":$("#inputPassword").val()}
+                            var json={"name":${user["userName"]}}
                             $.get("ServletDeleteUser",json)
                         }
                     )
+                    $(function(){
+                        $("#DELETEUSER").click(
+                            function (){
+                                $.get("ServletDeleteUser")
+                            }
+                        )
+                        $(function(){
+                            $("#deleteButton").click(
+                                function (){
+                                    var json={"name":${user["userName"]}}
+                                    $.get("ServletDeleteUser",json)
+                                }
+                            )
                     });
                     $(function(){
                         $("#modifyButton").click(
