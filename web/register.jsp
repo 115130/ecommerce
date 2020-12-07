@@ -41,9 +41,8 @@
 </div>
 
 <SCRIPT>
-    $(function as(){
-        $("[id=inputUser]").blur(
-            function(){
+    $(function (){
+        $("[id=inputUser]").blur(function(){
                 var userName=$("[id=inputUser]").val();
                 var json={"name":userName};
                 $.get("FindUserByNameServlet",json,callBack);//发送请求

@@ -72,7 +72,7 @@
     <div class="container clearfix">
         <a class="tr-logo logo" href="index.jsp"><img class="img-fluid" src="images/logo.png" alt="Logo"></a>
         <a class="tr-logo tr-logo-2" href="index.jsp"><img class="img-responsive" src="images/logo-white.png" alt="Logo"></a>
-        <form class="search-form" action="#" id="search" method="get">
+        <form class="search-form" action="SearchUserServlet" id="search" method="get">
             <input class="form-control" name="search" type="text" placeholder="在这里输入">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form><!-- /.form -->

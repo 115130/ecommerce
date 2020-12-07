@@ -38,7 +38,7 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon" sizes="57x57" href="images/ico/apple-touch-icon-57-precomposed.png">
     <!-- icons -->
-
+    <script src="bootstrap/js/jquery.min.js"></script>
 
 </head>
 <body>
@@ -64,7 +64,8 @@
     <div class="container clearfix">
         <a class="tr-logo logo" href="index.jsp"><img class="img-fluid" src="images/logo.png" alt="Logo"></a>
         <a class="tr-logo tr-logo-2" href="index.jsp"><img class="img-responsive" src="images/logo-white.png" alt="Logo"></a>
-        <form class="search-form" action="#" id="search" method="get">
+
+        <form class="search-form" action="SearchUserServlet" id="search" method="post">
             <input class="form-control" name="search" type="text" placeholder="在这里输入">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form><!-- /.form -->
@@ -297,25 +298,25 @@
                         </div>
                     </div>
                 </div>
-                <SCRIPT>
-                    $(function (){
-                        $("[id=buttonAddCart]").click((
-                            function(){
-                                var json={"productName":${product["productName"]},
-                                    "productCount":$("[id=productCount]").val()}
-                                    $.get("AddCartServlet",json)
-                            }));
+                <script>
+                    $(function  (){
+                        $("#buttonAddCart").click(function (){
+
+                            var json={"productName":${product["productName"]}, "productCount":$("[id=productCount]").val()};
+                            $.get("AddCartServlet",json,function (data){
+                                alert("添加失败");
+                                if(data=="error"){
+                                    alert("添加失败");
+                                }else{
+                                    alert("添加成功");
+                                }
+                            });
+
+
+                        });
                     });
 
-                    $(function (){
-                        $("[id=buttonAddCart]").click((
-                            function(){
-                                var json={"productName":${product["productName"]},
-                                    "productCount":$("[id=productCount]").val()}
-                                $.get("AddCartServlet",json)
-                            }));
-                    });
-                </SCRIPT>
+                </script>
                 </c:forEach>
 
                 <div class="tr-convenience">
@@ -441,6 +442,7 @@
 
 
                 <!-- JS -->
+
                 <script src="js/jquery.min.js"></script>
                 <script src="js/tether.min.js"></script>
                 <script src="js/bootstrap.min.js"></script>
@@ -448,5 +450,6 @@
                 <script src="js/jquery-ui-min.js"></script>
                 <script src="js/jquery.spinner.min.js"></script>
                 <script src="js/main.js"></script>
+
 </body>
 </html>

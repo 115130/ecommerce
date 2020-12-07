@@ -21,7 +21,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         if(list.size()!=0){
             user1=list.get(0);
             if(user.equals(user1.getUserName())&&password.equals(user1.getUserPassword())){
-                request.getSession().setAttribute("userName",user1);
+                request.getSession().setAttribute("user",user1);
                if (user1.getAdmin()==1){
                    response.sendRedirect("admin.jsp");
                }else {

@@ -27,7 +27,7 @@ class UserDaoTest {
 
     @org.junit.jupiter.api.Test
     void getUser() {
-        System.out.println(userDao.getUser("撒aa"));
+        System.out.println(userDao.getUser("橘子"));
     }
 
     @Test

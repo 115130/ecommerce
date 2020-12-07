@@ -75,8 +75,7 @@
                 </c:forEach>
                 <script>
                     $(function(){
-                        $("#deleteButton").click(
-                            function (){
+                        $("#deleteButton").click(function (){
                             var json={"name":${user["userName"]}}
                             $.get("ServletDeleteUser",json)
                         }
@@ -91,7 +90,7 @@
                             $("#deleteButton").click(
                                 function (){
                                     var json={"name":${user["userName"]}}
-                                    $.get("ServletDeleteUser",json)
+                                    $.post("ServletDeleteUser",json)
                                 }
                             )
                     });
@@ -99,7 +98,7 @@
                         $("#modifyButton").click(
                             function (){
                                 var json={"password":$("#inputPassword").val()},
-                                    {"name":${user["userName"]}}
+                                    {"userName":${user["userName"]}}
                                 $.get("ModifyUserServlet",json)
                             }
                         )
