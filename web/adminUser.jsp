@@ -27,7 +27,7 @@
         <div class="col-md-12 column">
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
+                    <a  class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
                 </li>
                 <li>
                     <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 商品管理</a>
@@ -40,12 +40,11 @@
                     <a href="#" data-toggle="dropdown" class="dropdown-toggle">高级选项<strong class="caret"></strong></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a id="DELETEUSER">清理所有已删除用户</a>
+                            <a href="DELETEUSERServlet" id="DELETEUSER">清理所有已删除用户</a>
                         </li>
                         <li>
                             <a id="PageDark">黑暗模式</a>
                         </li>
-
                         <li>
                             <a href="OutLoginServlet">退出登录</a>
                         </li>
@@ -63,51 +62,31 @@
                 <c:forEach items="${list}" var="user">
                     <div class="container">
                         <li>
-                                ${user["userName"]}
-                            <div class="input-group">
-                                <span class="input-group-addon">密码</span>
-                                <input type="text" value="123" class="form-control">
-                            </div>
-                            <button id="modifyButton" type="submit" class="btn btn-default btn-info pull-right">提交更改</button>
-                            <button id="deleteButton" type="button" class="btn btn-default btn-danger pull-right">删除</button>
+
+                                <label name="username">${user["userName"]}</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">密码</span>
+                                    <input id="password" type="text"  value="${user["userPassword"]}" class="form-control">
+                                </div>
+                                <a href="ModifyUserServlet?userName=${user["userName"]}&password="  id="modifyButton" type="button" class="btn btn-default btn-info pull-right">提交更改</a>
+                                <a href="DeleteServletUser?userName=${user["userName"]}" id="deleteButton" type="button" class="btn btn-default btn-danger pull-right">删除</a>
                         </li>
                     </div>
                 </c:forEach>
-                <script>
-                    $(function(){
-                        $("#deleteButton").click(function (){
-                            var json={"name":${user["userName"]}}
-                            $.get("ServletDeleteUser",json)
-                        }
-                    )
-                    $(function(){
-                        $("#DELETEUSER").click(
-                            function (){
-                                $.get("ServletDeleteUser")
-                            }
-                        )
-                        $(function(){
-                            $("#deleteButton").click(
-                                function (){
-                                    var json={"name":${user["userName"]}}
-                                    $.post("ServletDeleteUser",json)
-                                }
-                            )
-                    });
-                    $(function(){
-                        $("#modifyButton").click(
-                            function (){
-                                var json={"password":$("#inputPassword").val()},
-                                    {"userName":${user["userName"]}}
-                                $.get("ModifyUserServlet",json)
-                            }
-                        )
-                    });
-                </script>
             </ol>
         </div>
     </div>
 </div>
-
+<script>
+    $(function (){
+        $("#password").blur(
+            function (){
+                var href=$("#modifyButton").attr("href");
+                var href1=$("#password").val().toString();
+                $("#modifyButton").attr("href",href+href1)
+            }
+        )
+    })
+</script>
 </body>
 </html>

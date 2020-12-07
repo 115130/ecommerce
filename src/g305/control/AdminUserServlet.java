@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminUserServlet")
+@WebServlet("/AdminUserServlet")
 public class AdminUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService=new UserService();
         List<User> userList=userService.getAllUser();
         request.setAttribute("list",userList);
+        request.getRequestDispatcher("adminUser.jsp").forward(request,response);
     }
 }
