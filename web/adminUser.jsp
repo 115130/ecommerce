@@ -55,7 +55,7 @@
                             <a id="PageDark">黑暗模式</a>
                         </li>
                         <li>
-                            <a href="OutLoginServlet">退出登录</a>
+                            <a href="ExitLoginServlet">退出登录</a>
                         </li>
 
                     </ul>

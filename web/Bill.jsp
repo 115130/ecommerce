@@ -1,11 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
   User: miao
-  Date: 2020/12/6
-  Time: 13:57
+  Date: 2020/12/8
+  Time: 20:51
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,30 +36,24 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon" sizes="57x57" href="images/ico/apple-touch-icon-57-precomposed.png">
-    <!-- icons -->
-
 
 </head>
-<body id="body">
+<body>
 
 
 
 
 
-
-<div class="tr-menu">
-
-</div><!-- /.tr-menu -->
 
 <div class="tr-breadcrumb">
     <div class="container">
         <div class="breadcrumb-info">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">主页</a></li>
-                <li class="breadcrumb-item active">购物车</li>
+                <li class="breadcrumb-item"><a href="index.jsp">主页</a></li>
+
             </ol>
             <div class="page-title">
-                <h1>购物车</h1>
+                <h1>结算</h1>
             </div>
         </div>
     </div><!-- /.container -->
@@ -68,98 +61,27 @@
 
 <div class="main-wrapper">
     <div class="container">
-
         <div class="tr-section products-description">
-            <div class="cart-title">
-                <span>购物车</span>
-            </div>
 
-            <form class="woocommerce-cart-form" action="#">
-                <div class="item-info-menu">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <span>Item</span>
-                        </div>
-                        <div class="col-lg-4 col-md-3">
-                            <span>Color</span>
-                        </div>
-                        <div class="col-md-2">
-                            <span>QTY</span>
-                        </div>
-                        <div class="col-lg-1 col-md-2">
-                            <span class="price">Price</span>
-                        </div>
-                    </div><!-- /.row -->
-                </div>
-                <ul class="tr-list cart-list">
-<c:forEach items="${list}" var="productList">
-                    <li class="cart-item remove-item">
-                        <span class="remove-icon"><i class="fa fa-times" aria-hidden="true"></i></span>
-                        <div class="row">
-                            <div class="col-md-5">
-                                <div class="product">
-                                    <a href="details.html">
-                                                <span class="product-image">
-                                                    <img src="images/product/product2.png" alt="Image" class="img-fluid">
-                                                </span>
-                                        <span class="product-title">${productList["ProductName"]}</span>
-                                        <span class="color">${productList["ProductProperty"]}</span>
-                                    </a>
-                                </div><!-- /.product -->
-                            </div>
-                            <div class="col-lg-4 col-md-3">
-                                <div class="tr-color">
-                                    <input type="radio" name="sellType" id="color2">
-                                    <label></label>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div  class="quantity" data-trigger="spinner">
-                                    <a class="btn pull-left" href="javascript:;" data-spin="down"><i class="fa fa-minus"></i></a>
-                                    <input type="text" id="count" name="quantity" value="${productList["ProductCount"]}" title="quantity" class="input-text">
-                                    <a class="btn pull-right" href="javascript:;" data-spin="up"><i class="fa fa-plus"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-1 col-md-2 pull-right">
-                                <span id="OnePrice" class="price ">￥${productList["ProductPrice"]}</span>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </form>
-            <ul class="tr-list cart-totals">
-                <li>
-                    <div class="row">
-                        <div class="col-4 col-lg-9 col-md-8">
-                            <span>总计</span>
-                        </div>
 
-                        <div class="col-4 col-lg-1 col-md-2">
-                            <span id="AllPrice" class="price">$79.99</span>
+            <form class="contact-form" name="contact-form" method="post" action="#">
+                <div class="payment-category">
+
+                    <div class="container">
+                        <div class="jumbotron">
+                            <h1>总金额:<%=request.getParameter("countVal")%></h1>
                         </div>
                     </div>
-                </li>
-</c:forEach>
-            </ul>
-            <div class="buttons">
-
-                <a href="BillServlet" id="countM"  class="btn btn-primary pull-right">结算</a>
-            </div>
+                    <div class="buttons">
+                        <a href="delivery.jsp"  class="btn btn-primary pull-right">付款</a>
+                    </div>
+                </div>
+            </form>
         </div><!-- /.products-description -->
+
     </div><!-- /.container -->
 </div><!-- /.main-wrapper -->
-<script>
-    $(function (){
-        $("#body").mousemove(
-            function (){
-                var count=$("#count").val();
-                var price=$("#OnePrice").val();
-                var a= parseInt(count)+parseInt(price);
-                $("#AllPrice").val(a);
-                $("#countM").attr("href",$("#countM").attr("href")+"?"+"count"+a)
-            })
-    })
-</script>
+
 <div class="tr-convenience">
     <div class="container">
         <div class="row">

@@ -80,7 +80,7 @@
                             <span class="caret"></span></a>
                         <ul class="tr-dropdown-menu">
                             <li><a href="#">设置</a></li>
-                            <li><a href="login.jsp">注销登录</a></li>
+                            <li><a href="ExitLoginServlet">注销登录</a></li>
                         </ul>
                     </div><!-- /.dropdown -->
                 </div>

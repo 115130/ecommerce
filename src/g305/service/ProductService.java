@@ -87,6 +87,10 @@ public class ProductService {
         return productDao.updateProperty(productName,afterProperty);
     }
 
+    public Product getIdProduct(int productId){
+        return productDao.getIdProduct(productId).get(0);
+    }
+
     /**
      *根据商品名改变商品名字
      * @param productName 商品名

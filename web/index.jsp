@@ -87,7 +87,7 @@
                             <span class="caret"></span></a>
                         <ul class="tr-dropdown-menu">
                             <li><a href="#">设置</a></li>
-                            <li><a href="login.jsp">注销登录</a></li>
+                            <li><a href="ExitLoginServlet">注销登录</a></li>
                         </ul>
                     </div><!-- /.dropdown -->
                 </div>
@@ -369,7 +369,7 @@
                     <div class="icon">
                         <img src="images/others/icon1.png" alt="Image" class="img-fluid">
                     </div>
-                    <span>Free Delivery</span>
+                    <span>无需邮费</span>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -377,7 +377,7 @@
                     <div class="icon">
                         <img src="images/others/icon2.png" alt="Image" class="img-fluid">
                     </div>
-                    <span>Clients Discounts</span>
+                    <span>良好的客服</span>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -385,7 +385,7 @@
                     <div class="icon">
                         <img src="images/others/icon3.png" alt="Image" class="img-fluid">
                     </div>
-                    <span>Return Of Goods</span>
+                    <span>可随时退货</span>
                 </div>
             </div>
             <div class="col-sm-3">
@@ -393,7 +393,7 @@
                     <div class="icon">
                         <img src="images/others/icon4.png" alt="Image" class="img-fluid">
                     </div>
-                    <span>Many Brands</span>
+                    <span>品类繁多</span>
                 </div>
             </div>
         </div><!-- /.row -->
@@ -401,83 +401,31 @@
 </div><!-- /.tr-convenience -->
 
 <div class="tr-footer">
-    <div class="footer-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="left-content">
-                        <h3>Sign up for newsletter</h3>
-                        <p>Enter your email to receive relevant messaging tips and examples.</p>
-                        <form action="#">
-                            <input class="form-control" type="email" required="required" placeholder="Enter Your Email Id">
-                            <input type="submit" class="btn">
-                        </form>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <h3>We Accept</h3>
-                    <p>Enter your email to receive relevant messaging tips and examples.</p>
-                    <div class="payment-card">
-                        <ul class="tr-list">
-                            <li><img src="images/others/card1.png" alt="Image" class="img-fluid"></li>
-                            <li><img src="images/others/card2.png" alt="Image" class="img-fluid"></li>
-                            <li><img src="images/others/card3.png" alt="Image" class="img-fluid"></li>
-                            <li><img src="images/others/card4.png" alt="Image" class="img-fluid"></li>
-                            <li><img src="images/others/card5.png" alt="Image" class="img-fluid"></li>
-                            <li><img src="images/others/card6.png" alt="Image" class="img-fluid"></li>
-                        </ul>
-                    </div><!-- /.payment-card -->
-                </div>
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.footer-top -->
+
     <div class="footer-bottom">
         <div class="container">
+
             <div class="footer-widget">
-                <div class="footer-logo">
-                    <a href="#"><img src="images/footer-logo.png" alt="Logo" class="img-fluid"></a>
-                </div>
-                <span>Copyright &copy; 2017 <a href="#">Carrito</a></span>
-                <span>Design By<a href="#"> Theme Region</a></span>
-            </div><!-- /.footer-widget -->
-            <div class="footer-widget">
-                <h3>Product</h3>
+                <h3>商品</h3>
                 <ul class="tr-list">
-                    <li><a href="#">Pricing</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="#">Customers</a></li>
-                    <li><a href="#">One-Click Apps</a></li>
+                    <li><a href="#">定价</a></li>
+                    <li><a href="#">特征</a></li>
+                    <li><a href="#">消费</a></li>
+                    <li><a href="#">一次点击</a></li>
                     <li><a href="#">API</a></li>
                 </ul>
             </div><!-- /.footer-widget -->
             <div class="footer-widget">
                 <h3>Company</h3>
                 <ul class="tr-list">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">博客</a></li>
+                    <li><a href="#">职业</a></li>
+                    <li><a href="#">联系我们</a></li>
                 </ul>
             </div><!-- /.footer-widget -->
-            <div class="footer-widget">
-                <h3>Help</h3>
-                <ul class="tr-list">
-                    <li><a href="#">Getting Started</a></li>
-                    <li><a href="#">Feedback</a></li>
-                    <li><a href="#">Referral Program</a></li>
-                    <li><a href="#">Network Status</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
-            </div><!-- /.footer-widget -->
-            <div class="footer-widget">
-                <h3>Social</h3>
-                <ul class="tr-list">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i>Facebook</a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i>Twitter</a></li>
-                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i>LinkedIn</a></li>
-                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i>Google</a></li>
-                </ul>
-            </div><!-- /.footer-widget -->
+
+
         </div><!-- /.container -->
     </div><!-- /.footer-bottom -->
 </div><!-- /.tr-footer -->

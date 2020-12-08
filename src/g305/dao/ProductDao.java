@@ -39,6 +39,9 @@ public class ProductDao extends BaseDao<Product>{
     public List<Product> getNameProduct(String productName){
         return queryAll("SELECT * from Product where Product_name LIKE ? or Product_name=?","%"+productName+"%",productName);
     }
+    public List<Product> getIdProduct(int productId){
+        return queryAll("SELECT * from Product where Product_Id=?",productId);
+    }
     /**
      * 增加商品
      * @param productName 商品名称

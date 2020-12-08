@@ -54,7 +54,7 @@
                             <a id="PageDark">黑暗模式</a>
                         </li>
                         <li>
-                            <a href="OutLoginServlet">退出登录</a>
+                            <a href="ExitLoginServlet">退出登录</a>
                         </li>
 
                     </ul>
@@ -64,32 +64,34 @@
     </div>
 </div>
 
-<form role="form" action="AdminAddProductServlet" method="post" enctype="multipart/form-data">
-    <div class="form-group">
-        <label id="name">商品名称</label>
-        <input type="text" class="form-control" name="productName"
-               placeholder="请输入商品名称">
-    </div>
-    <div class="form-group">
-        <label for="inputfile" class="center-block">照片</label>
-        <input type="file" class="center-block" id="inputfile">
+<div class="container">
+    <form role="form" action="AdminAddProductServlet" method="post" enctype="multipart/form-data">
         <div class="form-group">
-            <label id="Count">商品数量</label>
-            <input type="text" class="form-control" name="productCount"
-                   placeholder="请输入商品数量">
+            <label id="name">商品名称</label>
+            <input type="text" class="form-control" name="productName"
+                   placeholder="请输入商品名称">
         </div>
         <div class="form-group">
-            <label id="Price">商品价格</label>
-            <input type="text" class="form-control" name="productPrice"
-                   placeholder="请输入商品价格">
+            <label for="inputfile" class="center-block">照片</label>
+            <input type="file" class="center-block" id="inputfile">
+            <div class="form-group">
+                <label id="Count">商品数量</label>
+                <input type="text" class="form-control" name="productCount"
+                       placeholder="请输入商品数量">
+            </div>
+            <div class="form-group">
+                <label id="Price">商品价格</label>
+                <input type="text" class="form-control" name="productPrice"
+                       placeholder="请输入商品价格">
+            </div>
+            <div class="form-group">
+                <label id="Product">商品属性</label>
+                <input type="text" class="form-control" name="productProduct"
+                       placeholder="请输入商品属性">
+            </div>
+            <button type="submit" class="btn btn-default center-block">添加用户</button>
         </div>
-        <div class="form-group">
-            <label id="Product">商品属性</label>
-            <input type="text" class="form-control" name="productProduct"
-                   placeholder="请输入商品属性">
-        </div>
-        <button type="submit" class="btn btn-default center-block">添加用户</button>
-    </div>
-</form>
+    </form>
+</div>
 </body>
 </html>
