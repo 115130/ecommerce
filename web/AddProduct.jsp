@@ -1,11 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2020/12/7
-  Time: 8:56
+  User: miao
+  Date: 2020/12/8
+  Time: 11:08
   To change this template use File | Settings | File Templates.
 --%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -64,38 +63,33 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <ol>
-                <c:forEach items="${list}" var="user">
-                    <div class="container">
-                        <li>
 
-                                <label name="username">${user["userName"]}</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon">密码</span>
-                                    <input id="password" type="text"  value="${user["userPassword"]}" class="form-control">
-                                </div>
-                                <a href="ModifyUserServlet?userName=${user["userName"]}&password="  id="modifyButton" type="button" class="btn btn-default btn-info pull-right">提交更改</a>
-                                <a href="DeleteServletUser?userName=${user["userName"]}" id="deleteButton" type="button" class="btn btn-default btn-danger pull-right">删除</a>
-                        </li>
-                    </div>
-                </c:forEach>
-            </ol>
-        </div>
+<form role="form" action="AdminAddProductServlet" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label id="name">商品名称</label>
+        <input type="text" class="form-control" name="productName"
+               placeholder="请输入商品名称">
     </div>
-</div>
-<script>
-    $(function (){
-        $("#password").blur(
-            function (){
-                var href=$("#modifyButton").attr("href");
-                var href1=$("#password").val().toString();
-                $("#modifyButton").attr("href",href+href1)
-            }
-        )
-    })
-</script>
+    <div class="form-group">
+        <label for="inputfile" class="center-block">照片</label>
+        <input type="file" class="center-block" id="inputfile">
+        <div class="form-group">
+            <label id="Count">商品数量</label>
+            <input type="text" class="form-control" name="productCount"
+                   placeholder="请输入商品数量">
+        </div>
+        <div class="form-group">
+            <label id="Price">商品价格</label>
+            <input type="text" class="form-control" name="productPrice"
+                   placeholder="请输入商品价格">
+        </div>
+        <div class="form-group">
+            <label id="Product">商品属性</label>
+            <input type="text" class="form-control" name="productProduct"
+                   placeholder="请输入商品属性">
+        </div>
+        <button type="submit" class="btn btn-default center-block">添加用户</button>
+    </div>
+</form>
 </body>
 </html>

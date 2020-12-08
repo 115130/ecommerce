@@ -72,5 +72,9 @@
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="html5shiv" level="application" />
     <orderEntry type="library" name="respond" level="application" />
+    <orderEntry type="library" name="commons-io-1.4" level="project" />
+    <orderEntry type="library" name="commons-fileupload-1.2" level="project" />
+    <orderEntry type="library" name="commons-fileupload-1.2 (2)" level="project" />
+    <orderEntry type="library" name="commons-io-1.4 (2)" level="project" />
   </component>
 </module>

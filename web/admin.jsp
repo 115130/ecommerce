@@ -37,7 +37,16 @@
                   <a href="AdminUserServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
               </li>
               <li>
-                  <a href="AdminProductServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 商品管理</a>
+                  <div class="btn-group-vertical">
+                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          商品管理
+                          <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                          <li><a href="AdminProductServlet">管理商品</a></li>
+                          <li><a href="AddProduct.jsp">添加商品</a></li>
+                      </ul>
+                  </div>
               </li>
               <li>
                   <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> 订单管理</a>

@@ -30,7 +30,16 @@
                     <a href="AdminUserServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> 用户管理</a>
                 </li>
                 <li>
-                    <a href="AdminProductServlet" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> 商品管理</a>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            商品管理
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="AdminProductServlet">管理商品</a></li>
+                            <li><a href="AddProduct.jsp">添加商品</a></li>
+                        </ul>
+                    </div>
                 </li>
                 <li>
                     <a class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> 订单管理</a>
@@ -65,9 +74,9 @@
                             <label>商品</label>
                             <div class="input-group">
                                 <span class="input-group-addon">商品名称</span>
-                                <input id="productName" type="text"  value="${product["productName"]}" class="form-control">
+                                <input id="afterProductName" type="text"  value="${product["productName"]}" class="form-control">
                             </div>
-
+                            <label id="P123" class="${product["productName"]}"></label>
                             <div class="input-group">
                                 <span class="input-group-addon">商品数量</span>
                                 <input id="productCount" type="text"  value="${product["productCount"]}" class="form-control">
@@ -80,10 +89,11 @@
                                 <span class="input-group-addon">商品属性</span>
                                 <input id="productProperty" type="text"  value="${product["productProperty"]}" class="form-control">
                             </div>
-                            <a href="ModifyProductServlet?"  id="modifyButton" type="button" class="btn btn-default btn-info pull-right">提交更改</a>
-                            <a href="DeleteServletUser?userName=${product["userName"]}" id="deleteButton" type="button" class="btn btn-default btn-danger pull-right">删除</a>
+                            <a id="modifyButton" type="button" class="btn btn-default btn-info pull-right">提交更改</a>
+                            <a href="DeleteServletUser?userName=${product["productName"]}" id="deleteButton" type="button" class="btn btn-default btn-danger pull-right">删除</a>
                         </li>
                     </div>
+
                 </c:forEach>
             </ol>
         </div>
@@ -91,54 +101,27 @@
 </div>
 <script>
     $(function (){
-        $("#productCount").blur(
+        $("#modifyButton").click(
             function (){
-                var productProperty=$("#productCount").attr("id");
-                var productPropertyVal=$("#productCount").val().toString();
-                var productPropertyUrl=productProperty+"="+productPropertyVal+"&";
-                $("#modifyButton").attr("href",$("#modifyButton").attr("href")+productPropertyUrl)
-            }
-        )
-    })
+                var productCountVal=$("#productCount").val();
+                var afterProductNameVal=$("#afterProductName").val().toString();
+                var ProductNameVal=$("#P123").attr("class");
+                var productPriceVal=$("#productPrice").val();
+                var productPropertyVal=$("#productProperty").val().toString();
+                var json={
+                    "productCount":productCountVal,
+                    "productName":ProductNameVal,
+                    "afterProductName":afterProductNameVal,
+                    "productPrice":productPriceVal,
+                    "productProperty":productPropertyVal,
+                };
+                $.post("ModifyProductServlet",json);
+                alert("13456")
+            });
+    });
     $(function (){
-        $("#productCount").blur(
-            function (){
-                var productCount=$("#productCount").attr("id");
-                var productCountVal=$("#productCount").val().toString();
-                var productCountUrl=productCount+"="+productCountVal+"&";
-                $("#modifyButton").attr("href",$("#modifyButton").attr("href")+productCountUrl)
-            }
-        )
-    })
-    $(function (){
-        $("#productPrice").blur(
-            function (){
-                var productPrice=$("#productPrice").attr("id");
-                var productPriceVal=$("#productPrice").val().toString();
-                var productPriceUrl=productPrice+"="+productPriceVal+"&";
-                $("#modifyButton").attr("href",$("#modifyButton").attr("href")+productPriceUrl)
-            }
-        )
-    })
-    $(function (){
-        $("#productName").blur(
-            function (){
-                var productName=$("#productName").attr("id");
-                var productNameVal=$("#productName").val().toString();
-                var productNameUrl=productName+"="+productNameVal+"&";
-                $("#modifyButton").attr("href",$("#modifyButton").attr("href")+productNameUrl)
-            }
-        )
-    })
-    $(function (){
-        $("#password").blur(
-            function (){
-                var href=$("#modifyButton").attr("href");
-                var href1=$("#password").val().toString();
-                $("#modifyButton").attr("href",href+href1)
-            }
-        )
-    })
+        $("#P123").hide();
+    });
 </script>
 </body>
 </html>
